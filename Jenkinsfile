@@ -7,21 +7,9 @@ pipeline {
 
     stages {
 
-        stage('Clone Code') {
-            steps {
-                git 'https://github.com/Dhanya2903/devops-project.git'
-            }
-        }
-
         stage('Build Docker Image') {
             steps {
                 bat 'docker build -t devops-app:latest .'
-            }
-        }
-
-        stage('Load Image to Minikube') {
-            steps {
-                bat 'minikube image load devops-app:latest'
             }
         }
 
